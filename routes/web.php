@@ -17,4 +17,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::resource('quizzes', \App\Http\Controllers\QuizController::class);
+Route::resource('quizzes.questions', \App\Http\Controllers\QuestionController::class)->shallow();
+
 require __DIR__.'/auth.php';
