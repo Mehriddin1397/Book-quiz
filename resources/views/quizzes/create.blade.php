@@ -1,4 +1,4 @@
-@extends('layouts.app')
+<x-layouts.app>
 
 @section('content')
     <div class="container">
@@ -16,4 +16,4 @@
             <button type="submit">Create</button>
         </form>
     </div>
-@endsection
+</x-layouts.app>

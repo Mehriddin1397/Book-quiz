@@ -20,4 +20,9 @@ Route::middleware('auth')->group(function () {
 Route::resource('quizzes', \App\Http\Controllers\QuizController::class);
 Route::resource('quizzes.questions', \App\Http\Controllers\QuestionController::class)->shallow();
 
+Route::get('quizzes/{quiz}/take', [\App\Http\Controllers\QuizController::class, 'take'])->name('quizzes.take');
+Route::post('quizzes/{quiz}/submit', [\App\Http\Controllers\QuizController::class, 'submit'])->name('quizzes.submit');
+
+
+
 require __DIR__.'/auth.php';

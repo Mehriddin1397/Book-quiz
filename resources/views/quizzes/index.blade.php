@@ -1,6 +1,5 @@
-@extends('layouts.app')
-
-@section('content')
+<x-layouts.app>
+{{--@section('content')--}}
     <div class="container">
         <h1>Quizzes</h1>
         <a href="{{ route('quizzes.create') }}" class="btn btn-primary">Create New Quiz</a>
@@ -18,4 +17,4 @@
             @endforeach
         </ul>
     </div>
-@endsection
+</x-layouts.app>
