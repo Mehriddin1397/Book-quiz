@@ -2,8 +2,7 @@
 <div class="container-xxl position-relative p-0">
     <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
         <a href="{{route('main')}}" class="navbar-brand p-0">
-{{--            <h1 class="m-0">DGital</h1>--}}
-             <img src="img/ilmfoyda.png" alt="Logo">
+             <img src="{{asset('img/ilmfoyda.png')}}" alt="Logo">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="fa fa-bars"></span>
@@ -15,7 +14,10 @@
                 <a href="{{route('service')}}" class="nav-item nav-link">Service</a>
                 <a href="{{route('contact')}}" class="nav-item nav-link">Contact</a>
             </div>
-            <a href="" class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Get Started</a>
+            <a href="{{ route('login') }}" class="navbar-brand p-0">
+                <img src="{{asset('img/user.png')}}" alt="Logo">
+
+            </a>
         </div>
     </nav>
 
