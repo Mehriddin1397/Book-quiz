@@ -14,10 +14,26 @@
                 <a href="{{route('service')}}" class="nav-item nav-link">Service</a>
                 <a href="{{route('contact')}}" class="nav-item nav-link">Contact</a>
             </div>
-            <a href="{{ route('login') }}" class="navbar-brand p-0">
-                <img src="{{asset('img/user.png')}}" alt="Logo">
-
-            </a>
+            @if (Auth::guest())
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                    <img src="{{asset('img/user.png')}}" alt="Logo">
+                </a>
+                <div class="dropdown-menu m-0">
+                    <a href="{{ route('login') }}" class="dropdown-item">Kirish</a>
+                    <a href="{{ route('register')}}" class="dropdown-item">Ro'yxatdan o'tish</a>
+                </div>
+            </div>
+            @else
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                        <img src="{{asset('img/user.png')}}" alt="Logo">
+                    </a>
+                    <div class="dropdown-menu m-0">
+                        <a href="{{ route('dashboard') }}">Mening Profilim</a>
+                    </div>
+                </div>
+            @endif
         </div>
     </nav>
 
