@@ -26,13 +26,19 @@ class QuestionController extends Controller
 
     public function store(Request $request, Quiz $quiz)
     {
+        if ($request->hasFile('photo')){
+            $name=$request->file('photo')->getClientOriginalName();
+            $path = $request->file('photo')->storeAs('question-photo',$name);
+        }
+
         $request->validate([
             'question' => 'required',
-            'option_a' => 'required',
-            'option_b' => 'required',
-            'option_c' => 'required',
-            'option_d' => 'required',
-            'correct_option' => 'required',
+            'photo' => $path ?? null,
+            'a' => 'required',
+            'b' => 'required',
+            'c' => 'required',
+            'd' => 'required',
+            'ans' => 'required',
         ]);
 
         $quiz->questions()->create($request->all());

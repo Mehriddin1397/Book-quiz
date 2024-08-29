@@ -15,11 +15,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId('quiz_id')->constrained()->onDelete('cascade');
             $table->string('question');
-            $table->string('option_a');
-            $table->string('option_b');
-            $table->string('option_c');
-            $table->string('option_d');
-            $table->string('correct_option');
+            $table->string('photo')->nullable();
+            $table->string('a')->default('0')->nullable();
+            $table->string('b')->default('0')->nullable();
+            $table->string('c')->default('0')->nullable();
+            $table->string('d')->default('0')->nullable();
+            $table->string('ans')->default('0')->nullable();
             $table->timestamps();
         });
     }
