@@ -32,15 +32,17 @@ class QuestionController extends Controller
         }
 
         $question = Question::create([
-            ''=>$request->category_id,
-            'nomi'=> $request->nomi,
-            'narxi'=> $request->narxi,
-            'tasnifi'=>$request->tasnifi,
-            'photo'=>$path ?? null,
+            'quiz_id'=>1,
+            'question' => $request->question,
+            'photo' => $path ?? null,
+            'a'=> $request->a,
+            'b' => $request->b,
+            'c' => $request->c,
+            'd' => $request->d,
+            'ans' => $request->ans,
         ]);
-        $quiz->questions()->create($request->all());
         \Illuminate\Support\Facades\Session::put('success', 'Question added successfully');
-        return redirect()->route('/');
+        return redirect()->route('main');
     }
 
     public function show(string $id)
