@@ -31,18 +31,16 @@ class QuestionController extends Controller
             $path = $request->file('photo')->storeAs('question-photo',$name);
         }
 
-        $request->validate([
-            'question' => 'required',
-            'photo' => $path ?? null,
-            'a' => 'required',
-            'b' => 'required',
-            'c' => 'required',
-            'd' => 'required',
-            'ans' => 'required',
+        $question = Question::create([
+            ''=>$request->category_id,
+            'nomi'=> $request->nomi,
+            'narxi'=> $request->narxi,
+            'tasnifi'=>$request->tasnifi,
+            'photo'=>$path ?? null,
         ]);
-
         $quiz->questions()->create($request->all());
-        return redirect()->route('quizzes.show', $quiz);
+        \Illuminate\Support\Facades\Session::put('success', 'Question added successfully');
+        return redirect()->route('/');
     }
 
     public function show(string $id)
@@ -61,17 +59,17 @@ class QuestionController extends Controller
 
     public function update(Request $request, Quiz $quiz, Question $question)
     {
-        $request->validate([
-            'question' => 'required',
-            'option_a' => 'required',
-            'option_b' => 'required',
-            'option_c' => 'required',
-            'option_d' => 'required',
-            'correct_option' => 'required',
-        ]);
-
-        $question->update($request->all());
-        return redirect()->route('quizzes.show', $quiz);
+//        $request->validate([
+//            'question' => 'required',
+//            'option_a' => 'required',
+//            'option_b' => 'required',
+//            'option_c' => 'required',
+//            'option_d' => 'required',
+//            'correct_option' => 'required',
+//        ]);
+//
+//        $question->update($request->all());
+//        return redirect()->route('quizzes.show', $quiz);
     }
 
     public function destroy(Quiz $quiz, Question $question)

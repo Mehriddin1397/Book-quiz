@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -29,13 +30,23 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
-Route::resource('quizzes', \App\Http\Controllers\QuizController::class);
-Route::resource('quizzes.questions', \App\Http\Controllers\QuestionController::class)->shallow();
-
-Route::get('quizzes/{quiz}/take', [\App\Http\Controllers\QuizController::class, 'take'])->name('quizzes.take');
-Route::post('quizzes/{quiz}/submit', [\App\Http\Controllers\QuizController::class, 'submit'])->name('quizzes.submit');
+Route::post('questions',[QuestionController::class, 'store'])->name('questions.store');
 
 
+Route::get('start', function () {
+    return view('questions.start');
+})->name('start');
+
+Route::get('end', function () {
+    return view('questions.end');
+})->name('end');
+
+Route::get('ansDesk', function () {
+    return view('questions.answerDesk');
+})->name('ansDesk');
+
+Route::get('create', function () {
+    return view('questions.create');
+});
 
 require __DIR__.'/auth.php';

@@ -26,7 +26,7 @@
             <div class="col-lg-7 mb-5">
                 <div class="contact-form bg-light p-30">
                     <div id="success"></div>
-                    <form name="sentMessage" action="{{route('quizzes.questions.store')}}" method="POST" novalidate="novalidate" enctype="multipart/form-data">
+                    <form name="sentMessage" action="{{route('questions.store')}}" method="POST" novalidate="novalidate" enctype="multipart/form-data">
                         @csrf
                         <div class="control-group">
                             <h4>Test yaratish oynasi</h4>
@@ -87,7 +87,7 @@
                             </div>
                         </div>
                         <br>
-                        <div>
+                        <div> Javob:
                             <select name="ans">
                                 <option value="a">A</option>
                                 <option value="b">B</option>
@@ -96,8 +96,9 @@
                             </select>
                         </div>
                         <div>
-                            <button type="submit" class="btn btn-outline-success py-2 px-4">Yaratish</button>
+                            <br> <button type="submit" class="btn btn-outline-success py-2 px-4">Yaratish</button>
                         </div>
+                        <div class="text-center"><a href="/">Bosh sahifaga qaytish</a></div>
                     </form>
                 </div>
             </div>
