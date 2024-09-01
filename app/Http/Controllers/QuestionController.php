@@ -61,17 +61,18 @@ class QuestionController extends Controller
 
     public function update(Request $request, Quiz $quiz, Question $question)
     {
-//        $request->validate([
-//            'question' => 'required',
-//            'option_a' => 'required',
-//            'option_b' => 'required',
-//            'option_c' => 'required',
-//            'option_d' => 'required',
-//            'correct_option' => 'required',
-//        ]);
-//
-//        $question->update($request->all());
-//        return redirect()->route('quizzes.show', $quiz);
+        $request->validate([
+            'quiz_id' => 'required',
+            'question' => 'required',
+            'a' => 'required',
+            'b' => 'required',
+            'c' => 'required',
+            'd' => 'required',
+            'ans' => 'required',
+        ]);
+
+        $question->update($request->all());
+        return redirect()->route('quizzes.show', $quiz);
     }
 
     public function destroy(Quiz $quiz, Question $question)

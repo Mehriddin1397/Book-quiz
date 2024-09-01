@@ -56,25 +56,25 @@ class QuizController extends Controller
         return redirect()->route('quizzes.index');
     }
 
-    public function take(Quiz $quiz) //bu funksiyada quizlar yuboriladi
-    {
-        $questions = $quiz->questions;
-        return view('quizzes.take', compact('quiz', 'questions'));
-    }
-
-    public function submit(Request $request, Quiz $quiz)// bu funksiyada kelgan javoblarni tekshiradi
-    {
-        $score = 0;
-        $total = count($quiz->questions);
-
-        foreach ($quiz->questions as $question) {
-            if ($request->answers[$question->id] == $question->correct_option) {
-                $score++;
-            }
-        }
-
-        return view('quizzes.result', compact('quiz', 'score', 'total'));
-    }
+//    public function take(Quiz $quiz) //bu funksiyada quizlar yuboriladi
+//    {
+//        $questions = $quiz->questions;
+//        return view('quizzes.take', compact('quiz', 'questions'));
+//    }
+//
+//    public function submit(Request $request, Quiz $quiz)// bu funksiyada kelgan javoblarni tekshiradi
+//    {
+//        $score = 0;
+//        $total = count($quiz->questions);
+//
+//        foreach ($quiz->questions as $question) {
+//            if ($request->answers[$question->id] == $question->correct_option) {
+//                $score++;
+//            }
+//        }
+//
+//        return view('quizzes.result', compact('quiz', 'score', 'total'));
+//    }
 
 
 }
