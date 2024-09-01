@@ -31,7 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource([
+Route::resources([
     'questions' => QuestionController::class,
     'quizzes' => QuizController::class,
 ]);

@@ -42,7 +42,7 @@ class QuestionController extends Controller
             'ans' => $request->ans,
         ]);
         \Illuminate\Support\Facades\Session::put('success', 'Question added successfully');
-        return redirect()->route('main');
+        return redirect()->route('quizzes.show',1);
     }
 
     public function show(string $id)
@@ -78,7 +78,8 @@ class QuestionController extends Controller
     public function destroy(Quiz $quiz, Question $question)
     {
         $question->delete();
-        return redirect()->route('quizzes.show', $quiz);
+        dd($quiz->id);
+        return redirect()->route('quizzes.show', 1);
     }
 
 }

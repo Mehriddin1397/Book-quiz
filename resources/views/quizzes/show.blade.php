@@ -22,7 +22,7 @@
     <div class="container">
         <h1>{{ $quiz->title }}</h1>
         <p>{{ $quiz->description }}</p>
-        <a href="{{ route('quizzes.questions.create', $quiz) }}" class="btn btn-primary">Add Question</a>
+        <a href="{{ route('questions.create', ['quiz'=>$quiz->id]) }}" class="btn btn-primary">Add Question</a>
         <ul>
             @foreach ($quiz->questions as $question)
                 <li>

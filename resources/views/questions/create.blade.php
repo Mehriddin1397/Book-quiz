@@ -1,24 +1,24 @@
-@extends('layouts.main')
-@section('title','Test yaratish')
+{{--@extends('layouts.main')--}}
+{{--@section('title','Test yaratish')--}}
 
-@section('content')
-    <div class="container-xxl py-5 bg-primary hero-header">
-        <div class="container my-5 py-5 px-lg-5">
-            <div class="row g-5 py-5">
-                <div class="col-12 text-center">
-                    <h1 class="text-white animated slideInDown">Contact</h1>
-                    <hr class="bg-white mx-auto mt-0" style="width: 90px;">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                            <li class="breadcrumb-item text-white active" aria-current="page">Create</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
+{{--@section('content')--}}
+{{--    <div class="container-xxl py-5 bg-primary hero-header">--}}
+{{--        <div class="container my-5 py-5 px-lg-5">--}}
+{{--            <div class="row g-5 py-5">--}}
+{{--                <div class="col-12 text-center">--}}
+{{--                    <h1 class="text-white animated slideInDown">Contact</h1>--}}
+{{--                    <hr class="bg-white mx-auto mt-0" style="width: 90px;">--}}
+{{--                    <nav aria-label="breadcrumb">--}}
+{{--                        <ol class="breadcrumb justify-content-center">--}}
+{{--                            <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>--}}
+{{--                            <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>--}}
+{{--                            <li class="breadcrumb-item text-white active" aria-current="page">Create</li>--}}
+{{--                        </ol>--}}
+{{--                    </nav>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
     <div class="container-fluid">
         <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4">
         </h2>
@@ -30,6 +30,7 @@
                         @csrf
                         <div class="control-group">
                             <h4>Test yaratish oynasi</h4>
+                            <input type="hidden" name="quiz_id" value="{{$quiz->id}}">
                             <div class="control-group">
                                 <label>Test savoli*</label>
                                 <textarea class="form-control"  rows="6" name="question"
@@ -104,4 +105,4 @@
             </div>
 
 
-@endsection
+{{--@endsection--}}
