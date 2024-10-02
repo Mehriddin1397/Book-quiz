@@ -25,15 +25,21 @@
         <a href="{{ route('questions.create', ['quiz'=>$quiz->id]) }}" class="btn btn-primary">Add Question</a>
         <ul>
             @foreach ($quiz->questions as $question)
-                <li>
-                    {{ $question->question }}
-                    <a href="{{ route('questions.edit', [$quiz, $question]) }}">Edit</a>
-                    <form action="{{ route('questions.destroy', $question) }}" method="POST" style="display:inline;">
+               <table>
+                <tr>
+                    <td>{{$loop->index}}</td>
+                    <td> {{ $question->question }}</td>
+
+                    <td>
+                    <a href="{{ route('questions.edit', $question->id) }}">Edit</a>
+                    <form action="{{ route('questions.destroy', $question->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
                         <button type="submit">Delete</button>
                     </form>
-                </li>
+                    </td>
+                </tr>
+               </table>
             @endforeach
         </ul>
     </div>

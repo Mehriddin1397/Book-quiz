@@ -29,7 +29,7 @@
             <div class="col-md-4">
                 <h3>Testni ishlashga tayyormisiz</h3>
                 <br>
-                <a href="#"><button class="btn btn-primary" style="margin-left: 15%">Testni boshlash</button></a>
+                <a href="{{route('startquiz')}}"><button class="btn btn-primary" style="margin-left: 15%">Testni boshlash</button></a>
                 <br>
                 <br>
                 <div class="text-center"><a href="/">Bosh sahifaga qaytish</a></div>

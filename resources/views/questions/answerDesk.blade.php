@@ -20,24 +20,27 @@
         </div>
     </div>
     <div class="container-fluid">
+        <form method="POST" action="{{route('submitans')}}">
+            @csrf
         <div class="row" style="padding-top: 10vh;">
                 <div class="col" style="margin-left: 20vh">
-                    <h4> 1. Ot so'z turkumini toping ?</h4> <br>
-                    <img src="img/image.svg" alt="image"><br>
-                    <input checked="true" name="ans" type="radio"> A <small> Bino</small> <br>
-                    <input name="ans" type="radio"> B <small> Yashil</small> <br>
-                    <input name="ans" type="radio"> C <small> Keng</small> <br>
-                    <input name="ans" type="radio"> D <small> Yumshoq</small> <br>
-                    <input value="" style="visibility: hidden" name="dbans">
+                    <h4> {{\Illuminate\Support\Facades\Session::get("nextq")}} : {{$question->question}}</h4> <br>
+                    <img class="img " style="width: 200px !important;" src="{{asset('storage/'.$question->photo)  }} " alt="image"><br>
+                    <input value="a"  checked="true" name="ans" type="radio"> A <small> {{$question->a}}</small> <br>
+                    <input value="b" name="ans" type="radio"> B <small> {{$question->b}}</small> <br>
+                    <input value="c" name="ans" type="radio"> C <small> {{$question->c}}</small> <br>
+                    <input value="d" name="ans" type="radio"> D <small> {{$question->d}}</small> <br>
+                    <input value="{{$question->ans}}" style="visibility: hidden" name="dbans">
                 </div>
         </div>
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-4">
-                <a href="#"><button class="btn btn-primary"> Next</button></a>
+                <button type="submit" class="btn btn-primary"> Next</button>
             </div>
             <div class="col-md-5"></div>
         </div>
+        </form>
     </div>
 
 @endsection

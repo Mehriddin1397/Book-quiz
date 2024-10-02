@@ -17,7 +17,7 @@
             @if (Auth::guest())
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                    <img src="{{asset('img/user.png')}}" alt="Logo">
+                    <img src="{{asset('img/user.svg')}}" alt="Logo">
                 </a>
                 <div class="dropdown-menu m-0">
                     <a href="{{ route('login') }}" class="dropdown-item">Kirish</a>
@@ -27,7 +27,7 @@
             @else
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                        <img src="{{asset('img/user.png')}}" alt="Logo">
+                        <img src="img/user.svg"  style="width: 5px !important;">
                     </a>
                     <div class="dropdown-menu m-0">
                         <a href="{{ route('dashboard') }}">Mening Profilim</a>

@@ -27,12 +27,15 @@
             <div class="col-md-5">
             </div>
             <div class="col-md-4">
-                <label>Correct: <small> 8 </small></label>
-                <label>Incorrect: <small> 2 </small></label>
-                <label>Result: <small> 8/10 </small></label> <br>
-                <a href="/"><button class="btn btn-primary" style="margin-left: 15%">Testni Tugatish</button></a>
-                <br>
-                <br>
+                <form action="{{ route('saveResults') }}" method="POST">
+                    @csrf
+                    <label>Tog'ri javob: <small>{{ \Illuminate\Support\Facades\Session::get('correctans') }}</small></label> <br>
+                    <label>Notog'ri javob: <small>{{ \Illuminate\Support\Facades\Session::get('wrongans') }}</small></label><br>
+                    <label>Umumiy: <small>{{ \Illuminate\Support\Facades\Session::get('correctans') }}/{{ \Illuminate\Support\Facades\Session::get('correctans') + \Illuminate\Support\Facades\Session::get('wrongans') }}</small></label> <br>
+                    <br>
+                    <button type="submit" class="btn btn-primary" style="margin-left: 7%">Testni Tugatish</button>
+                </form>
+
             </div>
 
             <div class="col-md-3">

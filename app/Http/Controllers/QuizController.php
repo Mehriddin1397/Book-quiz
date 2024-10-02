@@ -9,13 +9,13 @@ class QuizController extends Controller
 {
     public function index()
     {
-        $quizzes = Quiz::all();
-        return view('quizzes.index', compact('quizzes'));
+        $quizes = Quiz::all();
+        return view('admin.quiz.index', compact('quizes'));
     }
 
     public function create()
     {
-        return view('quizzes.create');
+        return view('quiz.create');
     }
 
     public function store(Request $request)
@@ -36,7 +36,7 @@ class QuizController extends Controller
 
     public function edit(Quiz $quiz)
     {
-        return view('quizzes.edit', compact('quiz'));
+        return view('admin.quiz.edit', compact('quiz'));
     }
 
     public function update(Request $request, Quiz $quiz)
