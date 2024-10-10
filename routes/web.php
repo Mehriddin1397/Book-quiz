@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuizController;
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -59,7 +60,9 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('quizzes',   \App\Http\Controllers\QuizController::class);
     Route::resource('questions', \App\Http\Controllers\QuestionController::class);
     Route::resource('code',\App\Http\Controllers\TestCodeController::class);
-    Route::patch('/code/{code}/status', [\App\Http\Controllers\TestCodeController::class, 'updateStatus'])->name('orders.updateStatus');
+
+    Route::post('/test/verify-code', [TestController::class,'verifyCode'])->name('test.verifyCode');
+
 
 
 });
@@ -67,8 +70,8 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
 
 Route::get('start', function () {
-    return view('questions.start');
-})->name('start');
+    return view('questions.code');
+})->middleware(['auth', 'verified'])->name('start');
 
 Route::get('end', function () {
     return view('questions.end');
@@ -83,7 +86,7 @@ Route::get('create', function () {
 });
 
 
-Route::post('/test/verify-code', 'TestController@verifyCode')->name('test.verifyCode');
+
 
 
 Route::get('/test/start', [\App\Http\Controllers\TestController::class, 'startTest'])->name('startTest');

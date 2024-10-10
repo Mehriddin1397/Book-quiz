@@ -18,6 +18,7 @@
         <div class="offcanvas-body">
             <form action="{{ route('questions.update',$question->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
                 <div class="row">
                     <div class="col-md-6">
                         <label class="form-label">Testlar:</label>
